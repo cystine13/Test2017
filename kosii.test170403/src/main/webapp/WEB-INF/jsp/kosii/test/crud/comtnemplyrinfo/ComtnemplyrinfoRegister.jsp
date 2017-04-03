@@ -292,6 +292,16 @@ function fn_egov_save() {
 <input type="hidden" name="searchKeyword" value="<c:out value='${searchVO.searchKeyword}'/>"/>
 <input type="hidden" name="pageIndex" value="<c:out value='${searchVO.pageIndex}'/>"/>
 </form:form>
+
+<c:if test="true">
+<script type="text/javascript">
+function fn_testdata() {
+	document.getElementById('emplyrId').value = 'cystine13';
+}
+fn_testdata();
+</script>
+</c:if>
+
 </body>
 </html>
 
