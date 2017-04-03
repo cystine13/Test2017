@@ -2,10 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>kosii</groupId>
-	<artifactId>test20170403</artifactId>
+	<artifactId>test170403</artifactId>
 	<packaging>war</packaging>
 	<version>1.0.0</version>
-	<name>test20170403</name>
+	<name>test170403</name>
 	<url>http://www.egovframe.go.kr</url>
 
 	<properties>
@@ -388,15 +388,15 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.31</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>ojdbc</groupId>
+			<artifactId>ojdbc</artifactId>
+			<version>6</version>
+		</dependency>
+
 	</dependencies>
 
-	<dependency>
-		<groupId>ojdbc</groupId>
-		<artifactId>ojdbc</artifactId>
-		<version>6</version>
-	</dependency>
-
-</dependencies>
 	<build>
 		<defaultGoal>install</defaultGoal>
 		<directory>${basedir}/target</directory>
