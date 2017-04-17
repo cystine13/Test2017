@@ -109,6 +109,8 @@ public class ComtnauthorgroupinfoController {
         return "kosii/test/crud/comtnauthorgroupinfo/ComtnauthorgroupinfoRegister";
     }
 
+    
+    
     @RequestMapping("/comtnauthorgroupinfo/selectComtnauthorgroupinfo.do")
     public @ModelAttribute("comtnauthorgroupinfoVO")
     ComtnauthorgroupinfoVO selectComtnauthorgroupinfo(
