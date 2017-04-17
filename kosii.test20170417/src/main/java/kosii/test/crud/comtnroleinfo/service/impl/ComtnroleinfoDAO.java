@@ -2,11 +2,12 @@ package kosii.test.crud.comtnroleinfo.service.impl;
 
 import java.util.List;
 
+import kosii.test.crud.comtnroleinfo.service.ComtnroleinfoDefaultVO;
+import kosii.test.crud.comtnroleinfo.service.ComtnroleinfoVO;
+
 import org.springframework.stereotype.Repository;
 
-import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
-import kosii.test.crud.comtnroleinfo.service.ComtnroleinfoVO;
-import kosii.test.crud.comtnroleinfo.service.ComtnroleinfoDefaultVO;
+import egovframework.com.cmm.service.impl.EgovComAbstractDAO;
 
 /**
  * @Class Name : ComtnroleinfoDAO.java
@@ -22,7 +23,7 @@ import kosii.test.crud.comtnroleinfo.service.ComtnroleinfoDefaultVO;
  */
 
 @Repository("comtnroleinfoDAO")
-public class ComtnroleinfoDAO extends EgovAbstractDAO {
+public class ComtnroleinfoDAO extends EgovComAbstractDAO {
 
 	/**
 	 * COMTNROLEINFO을 등록한다.

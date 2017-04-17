@@ -47,7 +47,7 @@ public class ComtnroleinfoController {
     /**
 	 * COMTNROLEINFO 목록을 조회한다. (pageing)
 	 * @param searchVO - 조회할 정보가 담긴 ComtnroleinfoDefaultVO
-	 * @return "/comtnroleinfo/ComtnroleinfoList"
+	 * @return "kosii/test/crud/comtnroleinfo/ComtnroleinfoList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnroleinfo/ComtnroleinfoList.do")
@@ -76,7 +76,7 @@ public class ComtnroleinfoController {
 		paginationInfo.setTotalRecordCount(totCnt);
         model.addAttribute("paginationInfo", paginationInfo);
         
-        return "/comtnroleinfo/ComtnroleinfoList";
+        return "kosii/test/crud/comtnroleinfo/ComtnroleinfoList";
     } 
     
     @RequestMapping("/comtnroleinfo/addComtnroleinfoView.do")
@@ -84,7 +84,7 @@ public class ComtnroleinfoController {
             @ModelAttribute("searchVO") ComtnroleinfoDefaultVO searchVO, Model model)
             throws Exception {
         model.addAttribute("comtnroleinfoVO", new ComtnroleinfoVO());
-        return "/comtnroleinfo/ComtnroleinfoRegister";
+        return "kosii/test/crud/comtnroleinfo/ComtnroleinfoRegister";
     }
     
     @RequestMapping("/comtnroleinfo/addComtnroleinfo.do")
@@ -106,7 +106,7 @@ public class ComtnroleinfoController {
         comtnroleinfoVO.setRoleCode(roleCode);
         // 변수명은 CoC 에 따라 comtnroleinfoVO
         model.addAttribute(selectComtnroleinfo(comtnroleinfoVO, searchVO));
-        return "/comtnroleinfo/ComtnroleinfoRegister";
+        return "kosii/test/crud/comtnroleinfo/ComtnroleinfoRegister";
     }
 
     @RequestMapping("/comtnroleinfo/selectComtnroleinfo.do")
