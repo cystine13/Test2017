@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnauthorgroupinfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnauthorgroupinfoSerarchVO" type="kosii.test.crud.comtnauthorgroupinfo.service.ComtnauthorgroupinfoDefaultVO"/>
+	
+	<resultMap id="comtnauthorgroupinfo" class="kosii.test.crud.comtnauthorgroupinfo.service.ComtnauthorgroupinfoVO">
+		<result property="groupId" column="GROUP_ID" columnIndex="1"/>
+		<result property="groupNm" column="GROUP_NM" columnIndex="2"/>
+		<result property="groupCreatDe" column="GROUP_CREAT_DE" columnIndex="3"/>
+		<result property="groupDc" column="GROUP_DC" columnIndex="4"/>
+	</resultMap>
+	
+	<insert id="comtnauthorgroupinfoDAO.insertComtnauthorgroupinfo_S">
+		<![CDATA[
+			INSERT INTO COMTNAUTHORGROUPINFO 
+				( GROUP_ID
+				  , GROUP_NM
+				  , GROUP_CREAT_DE
+				  , GROUP_DC )
+			VALUES ( #groupId#
+				  , #groupNm#
+				  , #groupCreatDe#
+				  , #groupDc# )
+		]]>
+	</insert>
+	
+	<update id="comtnauthorgroupinfoDAO.updateComtnauthorgroupinfo_S">
+		<![CDATA[
+			UPDATE COMTNAUTHORGROUPINFO
+			SET GROUP_ID=#groupId#
+				, GROUP_NM=#groupNm#
+				, GROUP_CREAT_DE=#groupCreatDe#
+				, GROUP_DC=#groupDc#
+						WHERE GROUP_ID=#groupId#
+				]]>
+	</update>
+	
+	<delete id="comtnauthorgroupinfoDAO.deleteComtnauthorgroupinfo_S">
+		<![CDATA[
+			DELETE FROM COMTNAUTHORGROUPINFO 
+						WHERE GROUP_ID=#groupId#
+				]]>
+	</delete>
+	
+	<select id="comtnauthorgroupinfoDAO.selectComtnauthorgroupinfo_S" resultMap="comtnauthorgroupinfo">
+		<![CDATA[
+			SELECT
+				GROUP_ID
+				, GROUP_NM
+				, GROUP_CREAT_DE
+				, GROUP_DC
+			FROM COMTNAUTHORGROUPINFO
+						WHERE GROUP_ID=#groupId#
+				]]>
+	</select>
+	
+	<select id="comtnauthorgroupinfoDAO.selectComtnauthorgroupinfoList_D" parameterClass="comtnauthorgroupinfoSerarchVO" resultClass="egovMap">
+SELECT * FROM (
+	SELECT A.*, ROWNUM RNUM FROM (
+				SELECT
+								GROUP_ID
+								, GROUP_NM
+								, GROUP_CREAT_DE
+								, GROUP_DC
+						FROM COMTNAUTHORGROUPINFO
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					GROUP_ID = #searchKeyword#
+				</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					GROUP_NM LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+					ORDER BY 
+						GROUP_ID DESC
+		
+		<![CDATA[					
+	) A WHERE ROWNUM <= #lastIndex#
+)WHERE RNUM > #firstIndex#
+]]>
+	</select>	
+	<select id="comtnauthorgroupinfoDAO.selectComtnauthorgroupinfoListTotCnt_S" parameterClass="comtnauthorgroupinfoSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNAUTHORGROUPINFO
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				GROUP_ID = #searchKeyword#
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				GROUP_NM LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+	</select>
+
+</sqlMap>
